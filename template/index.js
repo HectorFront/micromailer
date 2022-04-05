@@ -1,10 +1,4 @@
-const nodemailer = require('nodemailer');
-const config = require('../config/serviceEmail');
-
-module.exports = {
-
-    sendEmail: (req, res) => {
-        const form = `
+const template = `
         <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -105,16 +99,13 @@ module.exports = {
                         </div>
                         <div align="center" class="box-content">
                             <div align="center" class="title-content">
-                                <h5>
-                                    Este email está sendo testado para envio de código de recuperação de senha,
-                                    estou escrevendo qualquer coisa, e é isso.
-                                </h5>
+                                <h5>Template Email</h5>
                                 <hr>
                             </div>
-                            <h3 style="text-align: center !important; color: white !important; font-family: 'Arial', sans-serif !important;">Recovery code:
+                            <h3 style="text-align: center !important; color: white !important; font-family: 'Arial', sans-serif !important;">Code
                             </h3>
                             <div align="center" class="code-content">
-                                <p>131289</p>
+                                <p>12345</p>
                             </div>
                         </div>
                     </section>
@@ -124,18 +115,4 @@ module.exports = {
         </html>
     `;
 
-        const mailOptions = {
-            from: config.auth.user,
-            to: 'giovanesantos1999@gmail.com',
-            subject: 'Testanto',
-            html: form
-        };
-
-        nodemailer.createTransport(config).sendMail(mailOptions, (err, results) => {
-            if (err)
-                res.send({ error: `Email sending failed`, status: err });
-            res.send({ success: `Email successfully sent`, status: results });
-        });
-    }
-
-}
+export { template };

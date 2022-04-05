@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('./config/cors');
 const router = require('./routes/routes');
-require('./controller/email');
+require('./controller');
 
 app.use(bodyParser.json());
 app.use(cors);

@@ -1,8 +1,8 @@
 const config = {
     service: 'gmail',
     auth: {
-           user: 'seu email',
-           pass: 'sua senha'
+           user: 'email',
+           pass: 'password'
        },
     } 
 

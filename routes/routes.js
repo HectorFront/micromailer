@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const microservice = require('../controller/email');
+const { sendEmail } = require('../controller');
 
 router
-    // Route of nodemailer //
-    .get('/', (req, res)=> res.send({ stateRouter: "micro service status: OK" }))
-    .post('/send-email', microservice.sendEmail)
+    .get('/', (req, res)=> res.send({ stateRouter: "[Service] => Status: OK" }))
+    .post('/send/email', sendEmail)
 
 module.exports = router;
 
