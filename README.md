@@ -14,7 +14,7 @@ npm start or yarn start
 
 ## FROM
 #### config/service.config.js
-```
+```javascript
 const config = {
     service: 'gmail',
     auth: {
@@ -29,7 +29,7 @@ module.exports = config;
 
 ## TO
 #### controller/index.js
-```
+```javascript
 const config = require('../config/service.config');
 
 export const sendEmail = (req, res) => {
